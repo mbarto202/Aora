@@ -6,8 +6,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.blackText}>Aora</Text>
-      <Link href="/profile" style={styles.link}>
-        Go to Profile
+      <Link href="/home" style={styles.link}>
+        Go to Home
       </Link>
     </View>
   );
