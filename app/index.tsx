@@ -83,7 +83,7 @@ export default function App() {
           </Text>
           <CustomButton
             title="Continue with Email"
-            handlePress={() => router.push("/sing-in")}
+            handlePress={() => router.push("/sign-in")}
             containerStyles={{ width: "100%", marginTop: 28 }}
           />
         </View>
