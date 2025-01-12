@@ -1,9 +1,19 @@
-import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Dimensions,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Link } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
 import CustomButton from "@/components/CustomButton";
+
+const SCREEN_HEIGHT = Dimensions.get("window").height;
+const MIN_HEIGHT = SCREEN_HEIGHT * 0.85;
 
 export default function App() {
   return (
@@ -12,7 +22,7 @@ export default function App() {
         <View
           style={{
             width: "100%",
-            height: "100%",
+            minHeight: MIN_HEIGHT,
             justifyContent: "center",
             alignItems: "center",
             paddingLeft: 16,
@@ -38,10 +48,10 @@ export default function App() {
           <View style={{ position: "relative", marginTop: 20 }}>
             <Text
               style={{
-                fontSize: 30, // Corresponds to text-3xl
-                color: "#ffffff", // Corresponds to text-white
-                fontWeight: "bold", // Corresponds to font-bold
-                textAlign: "center", // Corresponds to text-center
+                fontSize: 30,
+                color: "#ffffff",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
             >
               Discover Endless Possibilities with{" "}
@@ -73,11 +83,12 @@ export default function App() {
           </Text>
           <CustomButton
             title="Continue with Email"
-            handlePress={() => {}}
+            handlePress={() => router.push("/sing-in")}
             containerStyles={{ width: "100%", marginTop: 28 }}
           />
         </View>
       </ScrollView>
+      <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 }
