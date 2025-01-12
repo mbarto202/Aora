@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
+import CustomButton from "@/components/CustomButton";
 
 export default function App() {
   return (
@@ -46,7 +47,35 @@ export default function App() {
               Discover Endless Possibilities with{" "}
               <Text style={{ color: "#FFA001" }}>Aora</Text>
             </Text>
+            <Image
+              source={images.path}
+              style={{
+                width: 136,
+                height: 15,
+                position: "absolute",
+                bottom: -8,
+                right: -32,
+              }}
+              resizeMode="contain"
+            />
           </View>
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: "Poppins-Regular",
+              color: "#f3f4f6",
+              marginTop: 28,
+              textAlign: "center",
+            }}
+          >
+            Where creativity meets innovation: embark on a journey of limitless
+            exploration with Aora
+          </Text>
+          <CustomButton
+            title="Continue with Email"
+            handlePress={() => {}}
+            containerStyles={{ width: "100%", marginTop: 28 }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
