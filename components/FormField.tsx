@@ -1,9 +1,18 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { View, Text, StyleProp, ViewStyle } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 
-const FormField = () => {
+type FormFieldProps = {
+  title: string;
+  value: string;
+  handleChangeText: (text: string) => void;
+  styles?: StyleProp<ViewStyle>;
+  keyboardType?: "default" | "email-address";
+};
+
+const FormField: React.FC<FormFieldProps> = ({ title }) => {
   return (
-    <View style={{ marginBottom: 8 }}>
+    <View style={{ marginTop: 24, marginBottom: 8 }}>
       <Text
         style={{
           fontSize: 16,
@@ -11,8 +20,22 @@ const FormField = () => {
           fontFamily: "Poppins-Medium",
         }}
       >
-        FormField
+        {title}
       </Text>
+      <View
+        style={{
+          width: "100%",
+          height: 64,
+          paddingHorizontal: 16,
+          backgroundColor: "#161622",
+          borderRadius: 16,
+          borderWidth: 2,
+          borderColor: "#232533",
+          flexDirection: "row",
+          alignItems: "center",
+          marginTop: 8,
+        }}
+      ></View>
     </View>
   );
 };
