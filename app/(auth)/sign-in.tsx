@@ -1,32 +1,32 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  Dimensions,
-  Image,
-} from "react-native";
 import React, { useState } from "react";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Link } from "expo-router";
 import { images } from "../../constants";
 import FormField from "@/components/FormField";
+import CustomButton from "@/components/CustomButton";
 
 const SignIn = () => {
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const submit = () => {
+    // Handle Sign In logic
+  };
+
   return (
-    <SafeAreaView style={{ backgroundColor: "black", height: "100%" }}>
-      <ScrollView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
+      <ScrollView keyboardShouldPersistTaps="handled">
         <View
           style={{
             width: "100%",
             justifyContent: "center",
-            height: "100%",
             paddingHorizontal: 16,
-            marginVertical: 24,
+            marginVertical: 100,
           }}
         >
           <Image
@@ -37,6 +37,7 @@ const SignIn = () => {
               height: 34,
             }}
           />
+
           <Text
             style={{
               fontSize: 24,
@@ -48,20 +49,57 @@ const SignIn = () => {
           >
             Log in to Aora
           </Text>
+
           <FormField
             title="Email"
             value={form.email}
-            handleChangeText={(e: any) => setform({ ...form, email: e })}
-            styles={{ marginTop: 7 }}
+            placeholder="Enter your email"
+            handleChangeText={(e) => setForm({ ...form, email: e })}
             keyboardType="email-address"
           />
           <FormField
             title="Password"
             value={form.password}
-            handleChangeText={(e: any) => setform({ ...form, password: e })}
-            styles={{ marginTop: 7 }}
-            keyboardType="email-address"
+            placeholder="Enter your password"
+            handleChangeText={(e) => setForm({ ...form, password: e })}
+            keyboardType="default"
           />
+
+          <CustomButton
+            title="Sign In"
+            handlePress={submit}
+            containerStyles={{ marginTop: 24 }}
+            isLoading={isSubmitting}
+          />
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              paddingTop: 20,
+              gap: 8,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                color: "#f3f4f6",
+                fontFamily: "Poppins-Regular",
+              }}
+            >
+              Don't have an account?
+            </Text>
+            <Link
+              href="/sign-up"
+              style={{
+                fontSize: 16,
+                fontFamily: "Poppins-SemiBold",
+                color: "#FFA001",
+              }}
+            >
+              Sign up
+            </Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
