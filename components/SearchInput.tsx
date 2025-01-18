@@ -61,15 +61,13 @@ const SearchInput: React.FC<FormFieldProps> = ({
         }}
       />
 
-      {title === "Password" && (
-        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Image
-            source={!showPassword ? icons.eye : icons.eyeHide}
-            style={{ width: 24, height: 24 }}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity>
+        <Image
+          source={icons.search}
+          style={{ width: 20, height: 20 }}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
     </View>
   );
 };
