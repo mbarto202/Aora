@@ -42,6 +42,7 @@ const SearchInput: React.FC<FormFieldProps> = ({
         flexDirection: "row",
         alignItems: "center",
         marginTop: 8,
+        gap: 16,
       }}
     >
       <TextInput
@@ -52,9 +53,10 @@ const SearchInput: React.FC<FormFieldProps> = ({
         keyboardType={keyboardType}
         secureTextEntry={title === "Password" && !showPassword}
         style={{
-          flex: 1,
-          color: "#FFFFFF",
           fontSize: 16,
+          marginTop: 2,
+          color: "#ffffff",
+          flex: 1,
           fontFamily: "Poppins-Regular",
         }}
       />
