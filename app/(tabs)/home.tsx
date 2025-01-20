@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList, Image, RefreshControl } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
@@ -10,8 +10,7 @@ const Home = () => {
   return (
     <SafeAreaView style={{ backgroundColor: "black" }}>
       <FlatList
-        //data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
-        data={[]}
+        data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
           <Text style={{ fontSize: 30, color: "white" }}>{item.id}</Text>
@@ -85,10 +84,12 @@ const Home = () => {
           </View>
         )}
         ListEmptyComponent={() => (
-          <Text style={{ color: "white" }}>
-            <EmptyState />
-          </Text>
+          <EmptyState
+            title="No Videos Found"
+            subtitle="Be the first one ot upload a video"
+          />
         )}
+        refreshControl={<RefreshControl />}
       />
     </SafeAreaView>
   );
