@@ -61,10 +61,23 @@ const Home = () => {
             <SearchInput
               title={""}
               value={""}
+              placeholder="Search for a video topic"
               handleChangeText={function (text: string): void {
                 throw new Error("Function not implemented.");
               }}
             />
+            <View>
+              <Text
+                style={{
+                  color: "#f3f4f6",
+                  fontSize: 18,
+                  fontFamily: "Poppins-Regular",
+                  marginBottom: 12,
+                }}
+              >
+                Latest Videos
+              </Text>
+            </View>
           </View>
         )}
       />
